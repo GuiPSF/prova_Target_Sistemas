@@ -1,0 +1,141 @@
+<!-- Guilherme de Paula Silva Ferreira -->
+<!-- Foram realizadas todas as questoes, estilização e script no mesmo arquivo por questão de praticidade. -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Teste Programaçao</title>
+</head>
+<body>
+    <div style="text-align: center;">
+        <h1>
+            Questão 1
+        </h1>
+        <h2>
+            Insira um número para verificar
+        </h2>
+        <input type="text" name="numero" id="numero"> 
+        <button onclick="verificarNumero()"> Verificar </button>
+    </div>
+
+    <div style="height: 2px; width: 100%; background-color: black; margin: 3%;">
+
+    </div>
+
+    <div style="text-align: center;">
+        <h1>Questao 2</h1>
+        <h2>
+            Insira uma String para verificar
+        </h2>
+        <input type="text" id="string">
+        <button onclick="verificarLetraA();">Verificar</button>
+    </div>
+
+    <div style="height: 2px; width: 100%; background-color: black; margin: 3%;">
+
+    </div>
+
+    <div style="text-align: center;">
+        <h1>Questao 3</h1>
+        <p id="soma"></p>
+    </div>
+
+    <div style="height: 2px; width: 100%; background-color: black; margin: 3%;">
+
+    </div>
+
+    <div style="text-align: center;">
+        <h1>Questão 4</h1>
+        <ol type="a" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <li>9</li>
+            <li>128</li>
+            <li>49</li>
+            <li>-</li>
+            <li>13</li>
+            <li>-</li>
+        </ol>
+    </div>
+
+    <div style="height: 2px; width: 100%; background-color: black; margin: 3%;">
+
+    </div>
+
+    <div style="text-align: center;">
+        <h1>Questao 5</h1>
+        <p>
+            Acenda qualquer um dos três interruptores, e vai nas duas salas. Se alguma acendeu, volte na sala principal e acenda outro.
+            Se a outra sala acendeu, o que faltou é da sala principal.
+            Se inicialmente nenhuma acendeu, a que acendeu é a sala principal. Depois, acenda outro, e vai nas duas salas novamente
+            pra ver qual acendeu, e o último interruptor é da sala que faltou.
+        </p>
+    </div>
+    <script>
+        //Questão 1
+
+        function fibonacci(numero) {
+            if (numero < 0) {
+                return false;
+            }
+
+            let a = 0, b = 1;
+
+            while (a <= numero) {
+                if (a === numero) {
+                    return true;
+                }
+                [a, b] = [b, a + b];
+            }
+            return false;
+        }
+
+        function verificarNumero() {
+            const numero = parseInt(document.getElementById("numero").value);
+            if(isNaN(numero)){
+                alert("Por favor, insira um número");
+                return;
+            }
+            if (fibonacci(numero)) {
+                alert(`O número ${numero} pertence à sequência de Fibonacci.`);
+            } else {
+                alert(`O número ${numero} não pertence à sequência de Fibonacci.`);
+            }
+        }
+
+        //--------------------------
+        //Questão 2
+
+        function verificarLetraA() {
+            let contador = 0;
+            const texto = document.getElementById('string').value;
+            // Percorre cada caractere da string
+            for (let i = 0; i < texto.length; i++) {
+                if (texto[i].toLowerCase() === 'a') {
+                    contador++;
+                }
+            }
+
+            if (contador > 0) {
+                alert(`A letra 'a' aparece ${contador} vez(es) na string.`);
+            } else {
+                alert("A letra 'a' não foi encontrada na string.");
+            }
+        }
+
+
+        //----------------------------
+        //Questão 3
+
+        function somar(){
+            let indice = 12, soma = 0, K = 1;
+            while(K < indice){
+                K = K + 1;
+                soma = soma + K;
+            }
+            console.log(soma);
+            document.getElementById('soma').innerHTML = soma;
+        }
+        somar();
+        
+    </script>
+</body>
+</html>
